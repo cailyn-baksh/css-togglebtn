@@ -1,2 +1,2 @@
 # css-togglebtn
-(almost) pure css toggle button
+pure css toggle button
