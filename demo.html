@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Toggle Button Demo</title>
+
+        <link href="togglebtn.css" rel="stylesheet" />
+
+        <style>
+            /* Doesn't affect the operation of the demo, just makes it look ✨pretty✨ */
+
+            hr {
+                margin: 40px 0px;
+            }
+
+            h1, h2 {
+                font-family: sans-serif;
+            }
+
+            h1 a {
+                text-decoration: underline #0000;
+                color: rgb(54, 112, 219);
+                transition: text-decoration 150ms ease-out;
+            }
+
+            h1 a:hover {
+                text-decoration: underline;
+            }
+
+            h2 span.explanation {
+                font-weight: normal;
+            }
+
+            label {
+                user-select: none;  /* I don't like user select on labels but it could concievably be useful so i leave it up to the individual devs to decide */
+            }
+        </style>
+
+        <script>
+            /*
+             * Adds and removes disabled class from given togglebtn
+             */
+            function toggleDisableCheckbox(id) {
+                let elem = document.getElementById(id);
+
+                elem.disabled = !elem.disabled;
+
+                document.querySelector("label[for=" + id + "].togglebtn").classList.toggle("disabled");
+            } 
+        </script>
+    </head>
+    <body>
+        <h1>Demo for <a href="togglebtn.css"><code>togglebtn.css</code></a></h1>
+
+        <h2>Demo #1: <span class="explanation">Toggle only</span></h2>
+        <input type="checkbox" id="demo1" class="togglebtn" autocomplete="off" />
+        <label for="demo1" class="togglebtn"><span class="indicator"></span></label>
+
+        <hr />
+
+        <h2>Demo #2: <span class="explanation">Toggle with label after</span></h2>
+        <input type="checkbox" id="demo2" class="togglebtn" autocomplete="off" />
+        <label for="demo2" class="togglebtn"><span class="indicator"></span></label>
+        <label for="demo2">Leat Fingies</label>
+
+        <hr />
+
+        <h2>Demo #3: <span class="explanation">Toggle with label before</span></h2>
+        <label for="demo3">Bimgus</label>
+        <input type="checkbox" id="demo3" class="togglebtn" autocomplete="off" />
+        <label for="demo3" class="togglebtn"><span class="indicator"></span></label>
+
+        <hr />
+
+        <h2>Demo #4: <span class="explanation">Toggle with conditional label (only works if label is after toggle)</span></h2>
+        <input type="checkbox" id="demo4" class="togglebtn" autocomplete="off" />
+        <label for="demo4" class="togglebtn conditional"><span class="indicator"></span></label>
+        <label for="demo4" class="conditional on">Leat Fingies</label>
+        <label for="demo4" class="conditional off">Bimgus</label>
+
+        <hr />
+
+        <h2>Demo #5: <span class="explanation">Disabled Toggle</span></h2>
+        <label for="demo5-disabler">Disable next toggle</label>
+        <input type="checkbox" id="demo5-disabler" class="togglebtn" autocomplete="off" onchange="toggleDisableCheckbox('demo5-disabled')" />
+        <label for="demo5-disabler" class="togglebtn"><span class="indicator"></span></label>
+
+        <br>
+        <br>
+
+        <input type="checkbox" id="demo5-disabled" class="togglebtn" autocomplete="off" />
+        <label for="demo5-disabled" class="togglebtn"><span class="indicator"></span></label>
+    </body>
+</html>
